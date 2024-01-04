@@ -1,5 +1,6 @@
 import time
 import random
+import json
 
 class Player:
     def __init__(self, name, level, experience, max_health, attack, defense, coins):
@@ -11,6 +12,7 @@ class Player:
         self.attack = attack
         self.defense = defense
         self.coins = coins
+        self.inventory = Inventory()
 
     def display_stats(self):
         print(f"\n----- {self.name}'s Stats -----")
@@ -21,6 +23,10 @@ class Player:
         print(f"Defense: {self.defense}")
         print(f"Coins: {self.coins}")
         print("-----------------------------")
+    
+    def display_inventory(self):
+        self.inventory.display_inventory()
+
 
 class Enemy:
     def __init__(self, name, health, attack, defense, coins):
@@ -29,6 +35,40 @@ class Enemy:
         self.attack = attack
         self.defense = defense
         self.coins = coins
+
+class Item:
+
+    def __init__(self, name, description, rarity, probability):
+        self.name = name
+        self.description = description
+        self.rarity = rarity
+        self.probability = probability
+
+class Inventory:
+    def __init__(self):
+        self.items = [] 
+    def add_item(self, item):
+        self.items.append(item)
+    def display_inventory(self):
+        if not self.items:
+            print_slow("Your inventory is empty.")
+        else:
+            print_slow("\n----Inventory----")
+            for item in self.items:
+                print(f"{item.name}:{item.description}")
+            print("------------------------")
+
+
+def load_enemies(filename):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+    return [Enemy(**enemy_data) for enemy_data in data['enemies']]
+
+def load_items(filename):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+    return [Item(**item_data) for item_data in data]
+
 
 def print_slow(str):
     for letter in str:
@@ -72,6 +112,17 @@ def battle(player, enemy):
         player.experience += 20
         player.coins += enemy.coins
         print_slow(f"\nCongratulations! You defeated {enemy.name} and gained 20 experience and {enemy.coins} coins.")
+        
+
+        won_item = win_item(load_items('battle_items.json'))
+        if won_item: 
+            player.inventory.add_item(won_item)
+            print_slow(f"You also a {won_item.rarity} item: {won_item.name} - {won_item.description}")
+
+
+        
+        
+        
         check_level_up(player)
 
 def check_level_up(player):
@@ -122,15 +173,23 @@ def visit_shop(player):
     else:
         print_slow("Invalid choice! Try again.")
 
+def win_item(items):
+    rand_num = random.random()
+
+    for item in items:
+        if rand_num < item.probability:
+            return item
+    return None
+
+
 def main():
     print_slow("Welcome to the Text RPG Game!\n")
 
-    player_name = input("Enter your name: ")
-    player = Player(name=player_name, level=1, experience=0, max_health=50, attack=15, defense=5, coins=50)
+    enemies = load_enemies('enemies.json')
+    items = load_items('battle_items.json')
 
-    enemies = [Enemy("Goblin", health=30, attack=10, defense=5, coins=10),
-               Enemy("Dragon", health=50, attack=20, defense=15, coins=20),
-               Enemy("Troll", health=40, attack=15, defense=10, coins=15)]
+    player_name = input("Enter your name: ")
+    player = Player(name=player_name, level=1, experience=0, max_health=50, attack=100, defense=5, coins=50)
 
     while player.health > 0:
         player.display_stats()
@@ -141,6 +200,7 @@ def main():
 
         if choice == "1":
             enemy = random.choice(enemies)
+            print(f"Chosen Enemy: {enemy.__dir__}")
             battle(player, enemy)
 
         elif choice == "2":

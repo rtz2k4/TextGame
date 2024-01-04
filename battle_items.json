@@ -1,0 +1,7 @@
+[
+    {"name": "Healing Herb", "description": "Restore 10 health", "rarity": "Common", "probability": 0.2},
+    {"name": "Elixir of Strength", "description": "Increase attack by 5 for one battle", "rarity": "Rare", "probability": 0.15},
+    {"name": "Shielding Amulet", "description": "Reduce incoming damage by 3 for one battle", "rarity": "Rare", "probability": 0.15},
+    {"name": "Scroll of Wisdom", "description": "Gain 20 experience points", "rarity": "Epic", "probability": 0.1},
+    {"name": "Lucky Charm", "description": "Find extra coins after battles", "rarity": "Legendary", "probability": 0.05}
+]

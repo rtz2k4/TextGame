@@ -1,0 +1,145 @@
+{
+    "enemies": [
+      {
+        "name": "Goblin",
+        "health": 30,
+        "attack": 10,
+        "defense": 5,
+        "coins": 10
+      },
+      {
+        "name": "Dragon",
+        "health": 50,
+        "attack": 20,
+        "defense": 15,
+        "coins": 20
+      },
+      {
+        "name": "Troll",
+        "health": 40,
+        "attack": 15,
+        "defense": 10,
+        "coins": 15
+      },
+      {
+        "name": "Skeleton",
+        "health": 25,
+        "attack": 12,
+        "defense": 8,
+        "coins": 12
+      },
+      {
+        "name": "Orc",
+        "health": 35,
+        "attack": 18,
+        "defense": 12,
+        "coins": 15
+      },
+      {
+        "name": "Slime",
+        "health": 20,
+        "attack": 8,
+        "defense": 3,
+        "coins": 8
+      },
+      {
+        "name": "Witch",
+        "health": 40,
+        "attack": 15,
+        "defense": 10,
+        "coins": 18
+      },
+      {
+        "name": "Zombie",
+        "health": 30,
+        "attack": 12,
+        "defense": 7,
+        "coins": 10
+      },
+      {
+        "name": "Werewolf",
+        "health": 45,
+        "attack": 20,
+        "defense": 14,
+        "coins": 22
+      },
+      {
+        "name": "Harpy",
+        "health": 28,
+        "attack": 14,
+        "defense": 9,
+        "coins": 13
+      },
+      {
+        "name": "Minotaur",
+        "health": 55,
+        "attack": 22,
+        "defense": 18,
+        "coins": 25
+      },
+      {
+        "name": "Ghost",
+        "health": 25,
+        "attack": 10,
+        "defense": 5,
+        "coins": 10
+      },
+      {
+        "name": "Cyclops",
+        "health": 60,
+        "attack": 25,
+        "defense": 20,
+        "coins": 30
+      },
+      {
+        "name": "Spider",
+        "health": 18,
+        "attack": 8,
+        "defense": 4,
+        "coins": 8
+      },
+      {
+        "name": "Centaur",
+        "health": 38,
+        "attack": 16,
+        "defense": 11,
+        "coins": 17
+      },
+      {
+        "name": "Vampire",
+        "health": 42,
+        "attack": 18,
+        "defense": 13,
+        "coins": 20
+      },
+      {
+        "name": "Mummy",
+        "health": 32,
+        "attack": 14,
+        "defense": 9,
+        "coins": 15
+      },
+      {
+        "name": "Banshee",
+        "health": 28,
+        "attack": 12,
+        "defense": 8,
+        "coins": 14
+      },
+      {
+        "name": "Demon",
+        "health": 48,
+        "attack": 20,
+        "defense": 15,
+        "coins": 22
+      },
+      {
+        "name": "Yeti",
+        "health": 50,
+        "attack": 18,
+        "defense": 14,
+        "coins": 20
+      }
+    ]
+  }
+  
